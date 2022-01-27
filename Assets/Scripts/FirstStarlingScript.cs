@@ -38,8 +38,14 @@ public class FirstStarlingScript : MonoBehaviour
 
     IEnumerator Move(){
         while(true){
-            x_speed = Random.Range(-10.0f,10.0f) * Time.deltaTime;
-            y_speed = Random.Range(-10.0f,10.0f) * Time.deltaTime;
+            int x_plusMinus = 1;
+            int y_plusMinus = 1;
+            int x_random = Random.Range(0,2);
+            int y_random = Random.Range(0,2);
+            if(x_random == 0) x_plusMinus = -1;
+            if(y_random == 0) y_plusMinus = -1;
+            x_speed = (float)x_plusMinus * Random.Range(10.0f,15.0f) * Time.deltaTime;
+            y_speed = (float)y_plusMinus * Random.Range(10.0f,15.0f) * Time.deltaTime;
             direction = new Vector3(x_speed,y_speed,0f);
             yield return new WaitForSeconds(3);
         }
